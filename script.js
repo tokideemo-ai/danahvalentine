@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
     validateConfig();
 
     // Set texts from config
-    document.getElementById('valentineTitle').textContent = `${config.valentineName}, my Bing...`;
+    document.getElementById('valentineTitle').textContent = `${config.valentineName}, my love...`;
     
     // Set first question texts
     document.getElementById('question1Text').textContent = config.questions.first.text;
@@ -95,8 +95,8 @@ function createFloatingElements() {
         const img = document.createElement('img');
         img.src = heart;
         img.alt = 'heart';
-        img.style.width = '100px';
-        img.style.height = '150px';
+        img.style.width = '50px';
+        img.style.height = '50px';
         div.appendChild(img);
         setRandomPosition(div);
         container.appendChild(div);
@@ -109,8 +109,8 @@ function createFloatingElements() {
         const img = document.createElement('img');
         img.src = bear;
         img.alt = 'bear';
-        img.style.width = '100px';
-        img.style.height = '150px';
+        img.style.width = '60px';
+        img.style.height = '60px';
         div.appendChild(img);
         setRandomPosition(div);
         container.appendChild(div);
@@ -203,7 +203,12 @@ function createHeartExplosion() {
     for (let i = 0; i < 50; i++) {
         const heart = document.createElement('div');
         const randomHeart = config.floatingEmojis.hearts[Math.floor(Math.random() * config.floatingEmojis.hearts.length)];
-        heart.innerHTML = randomHeart;
+        const img = document.createElement('img');
+        img.src = randomHeart;
+        img.alt = 'heart';
+        img.style.width = '100px';
+        img.style.height = '150px';
+        heart.appendChild(img);
         heart.className = 'heart';
         document.querySelector('.floating-elements').appendChild(heart);
         setRandomPosition(heart);
